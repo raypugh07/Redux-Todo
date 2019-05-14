@@ -29,3 +29,11 @@ export function setVisibilityFilter(filter){
         type:SET_VISIBILITY_FILTER,filter
     }
 }
+
+const mapDispatchToProps=dispatch=>{
+    return {
+        delete:todoText=>dispatch({type:'DELETE_TODO',payload:todoText})
+    }
+}
+
+export default mapDispatchToProps;

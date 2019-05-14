@@ -3,26 +3,44 @@ import PropTypes from 'prop-types'
 import Todo from './todo'
 //import { toggleTodo } from '../Actions/actions';
 
-const TodoList = ({ todos, toggleTodo }) => (
+const TodoList = ({ todos, toggleTodo}) => (
   <ul>
     {todos.map((todo, index) => (
-      <Todo key={index} {...todo} onClick={() => toggleTodo(index)} />
+      <Todo key={index} {...todo} onClick={() => toggleTodo(index)} /*delete={this.props.delete} *//>
     ))}
   </ul>
 )
+
+
+/*class TodoList extends Component{
+  renderTodos=()=>this.props.todos.map((todo,index)=>
+  <Todo key={index} {...todo} onClick={() => toggleTodo(index)} delete={this.props.delete} />)
+
+
+  render() {
+    return(
+      <div>
+        {this.renderTodos()}
+      </div>
+    );
+  }
+};*/
+
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired,
+     
     }).isRequired
   ).isRequired,
   onTodoClick: PropTypes.func.isRequired
 }
 
 export default TodoList
+
 
 /*const TodoList = ({ todos, toggleTodo }) => (
   <ul>
