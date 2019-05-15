@@ -28,6 +28,13 @@ function todos(state = [], action) {
           completed: false
         }
       ]
+      case 'DELETE_TODO':
+      const updatedState=state.filter(todo=>todo.id!==action.payload)
+      return updatedState;
+
+
+
+
     case TOGGLE_TODO:
       return state.map((todo, index) => {
         if (index === action.index) {

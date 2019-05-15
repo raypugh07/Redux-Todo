@@ -1,19 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {deleteTodo} from '../Actions/actions'
 
-const Todo = ({ onClick, completed, text }) => (
-  <div><li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-    
-  </li>
- 
-  </div>
-)
+const Todo = (props) => {
+  const { onClick, completed, text}=props
+  const deleteTodo=e=>{
+    e.preventDefault()
+    props.deleteTodo()
+  }
+  return(
+<div><li
+  onClick={onClick}
+  style={{
+    textDecoration: completed ? 'line-through' : 'none'
+  }}
+>
+  {text}
+
+  <button onClick={deleteTodo}>Delete</button>
+  
+</li>
+
+
+</div>
+)}
 
 Todo.propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -21,4 +32,8 @@ Todo.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default Todo
+const mapStateToProps=state=>({
+
+  
+})
+export default connect(mapStateToProps,{deleteTodo})(Todo)

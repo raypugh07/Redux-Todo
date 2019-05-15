@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './todo'
+//import { deleteTodo } from '../Actions/actions';
 //import { toggleTodo } from '../Actions/actions';
 
 const TodoList = ({ todos, toggleTodo}) => (
   <ul>
     {todos.map((todo, index) => (
-      <Todo key={index} {...todo} onClick={() => toggleTodo(index)} /*delete={this.props.delete} *//>
+      <Todo key={index} {...todo} onClick={() => toggleTodo(index)}  />
     ))}
   </ul>
 )
